@@ -1,0 +1,21 @@
+num a = 4 ;
+num b = a + 5 ;
+num c = a + b ;
+num w = 4 - a ;
+fnum j = 5 * 12.7 ;
+fnum l = a * 1.9 ;
+fnum q = b / a ;
+fnum o = 5 / 2 ;
+fnum z = a / 2 ;
+fnum d = 12.5 ;
+fnum p = 5.8 + 12.5 ;
+fnum e = a + d - 5 ;
+print p ;
+print a ;
+logic k = a > b ;
+logic g = a < b ;
+logic h = a >= b ;
+if ( a > b )
+logic f = a <= b ;
+print b ;
+print Helo_World ;
