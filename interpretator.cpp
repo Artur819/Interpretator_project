@@ -20,6 +20,36 @@ std::vector<std::string > keywords
 	"print" };
 std::map<std::string, variable> var_info;
 
+int is_keyword_index(std::string first_token);
+void do_decleration_for_logic(std::ifstream &fin, int type_index);
+void do_decleration_for_num(std::ifstream &fin, int type_index);
+void do_decleration_for_fnum(std::ifstream &fin, int type_index);
+void do_decleration_for_if(std::ifstream &fin, int type_index);
+void do_decleration_for_while(std::ifstream &fin, int type_index);
+void print(std::ifstream &fin, int type_index);
+void do_interpretation(std::ifstream &fin);
+
+int main()
+{
+	std::ifstream file;
+	std::string path = "code.txt";
+	int type_index = 0;
+	file.open(path);
+	std::string token, tmp;
+	if (file.is_open())
+	{
+		std::cout << "The file you selected was successfully uploaded" << std::endl;
+		do_interpretation(file);
+	}
+	else
+	{
+		std::cout << "Something was gone wrong" << std::endl;
+	}
+
+	return 0;
+}
+
+
 int is_keyword_index(std::string first_token)
 {
 
@@ -32,6 +62,7 @@ int is_keyword_index(std::string first_token)
 	}
 	return -1;
 }
+
 void do_decleration_for_logic(std::ifstream &fin, int type_index)
 {
 	std::string token;
@@ -423,6 +454,7 @@ void do_decleration_for_logic(std::ifstream &fin, int type_index)
 
 	while (token != ";");
 }
+
 void do_decleration_for_num(std::ifstream &fin, int type_index)
 {
 	std::string token;
@@ -550,6 +582,7 @@ void do_decleration_for_num(std::ifstream &fin, int type_index)
 	}	//do
 	while (token != ";");
 }	//funqcia
+
 void do_decleration_for_fnum(std::ifstream &fin, int type_index)
 
 {
@@ -681,6 +714,7 @@ void do_decleration_for_fnum(std::ifstream &fin, int type_index)
 	}	//do
 	while (token != ";");
 }
+
 void do_decleration_for_if(std::ifstream &fin, int type_index)
 {
 	std::string token;
@@ -984,6 +1018,7 @@ void do_decleration_for_if(std::ifstream &fin, int type_index)
 	}	//do
 	while (token != ")");
 }
+
 void do_decleration_for_while(std::ifstream &fin, int type_index)
 {
 	std::string token;
@@ -1284,6 +1319,7 @@ void do_decleration_for_while(std::ifstream &fin, int type_index)
 	}	//do
 	while (token != ")");
 }
+
 void print(std::ifstream &fin, int type_index)
 {
 	// std::cout<<type_index<<std::endl;
@@ -1304,6 +1340,7 @@ void print(std::ifstream &fin, int type_index)
 	}
 	while (token != ";");
 }
+
 void do_interpretation(std::ifstream &fin)
 {
 	std::string token = "";
@@ -1343,24 +1380,4 @@ void do_interpretation(std::ifstream &fin)
 				// break;
 		}
 	}
-}
-
-int main()
-{
-	std::ifstream file;
-	std::string path = "code.txt";
-	int type_index = 0;
-	file.open(path);
-	std::string token, tmp;
-	if (file.is_open())
-	{
-		std::cout << "The file you selected was successfully uploaded" << std::endl;
-		do_interpretation(file);
-	}
-	else
-	{
-		std::cout << "Something was gone wrong" << std::endl;
-	}
-
-	return 0;
 }
